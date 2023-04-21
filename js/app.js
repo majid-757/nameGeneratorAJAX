@@ -17,7 +17,26 @@ function loadNames(e) {
       url += 'random/'
     }
 
+    if (genre !== '') {
+      url += (genre + '/')
+    } else {
+      url += 'random/'
+    }
+
     console.log(url)
+
+    // Ajax
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', url, true);
+
+    xhr.onload = function () {
+      if (this.status === 200) {
+        console.log(this.responseText)
+      }
+    }
+
+    xhr.send();
 }
 
 
